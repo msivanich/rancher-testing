@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: rancher-web
+  name: rancher-web-deployment
+  labels:
+    app: rancher-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rancher-web
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: rancher-web
+    spec:
+      affinity:
+        podAffinity: {}
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector: {}
+              topologyKey: kubernetes.io/hostname
+            weight: 1
+      containers:
+      - image: httpd:2.4
+        imagePullPolicy: Always
+        name: rancher-web
+        ports:
+        - containerPort: 80 
