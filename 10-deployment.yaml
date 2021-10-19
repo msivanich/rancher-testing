@@ -34,4 +34,11 @@ spec:
         imagePullPolicy: Always
         name: rancher-web
         ports:
-        - containerPort: 80 
+        - containerPort: 80
+      tolerations:
+      - key: cattle.io/os
+        operator: "Equal"
+        value: "linux"
+        effect: NoSchedule
+      nodeSelector:
+        kubernetes.io/os: linux
