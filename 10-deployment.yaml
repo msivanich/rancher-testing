@@ -42,3 +42,40 @@ spec:
         effect: NoSchedule
       nodeSelector:
         kubernetes.io/os: linux
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: windows-core-test
+  name: windows-core-iss-deployment
+  labels:
+    app: windows-core-iis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: windows-core-iis
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: windows-core-iis
+    spec:
+      affinity:
+        podAffinity: {}
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector: {}
+              topologyKey: kubernetes.io/hostname
+            weight: 1
+      containers:
+      - image: registry.containers.rmntest.com/public/windows-core-iis:latest
+        imagePullPolicy: Always
+        name: windows-core-iis
+      nodeSelector:
+        kubernetes.io/os: windows
