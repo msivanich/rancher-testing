@@ -36,5 +36,5 @@ spec:
             name: windows-core-iis-service
             port:
               number: 80
-        path: /
+        path: /iis
         pathType: Prefix
