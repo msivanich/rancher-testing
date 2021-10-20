@@ -18,6 +18,10 @@ spec:
               number: 80
         path: /
         pathType: Prefix
+  tls:
+  - hosts:
+    - '*.containers.rmntest.com'
+    secretName: container-rmntest-cert
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -38,3 +42,7 @@ spec:
               number: 80
         path: /iis
         pathType: Prefix
+  tls:
+  - hosts:
+    - '*.containers.rmntest.com'
+    secretName: container-rmntest-cert
