@@ -43,8 +43,8 @@ spec:
             name: windows-core-iis-service
             port:
               number: 80
-        path: /iis
-        #path: /iis(/|$)(.*)
+        #path: /iis
+        path: /iis(/|$)(.*)
         pathType: Prefix
   tls:
   - hosts:
