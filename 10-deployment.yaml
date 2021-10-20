@@ -77,8 +77,8 @@ spec:
       - image: registry.containers.rmntest.com/public/windows-core-iis:latest
         imagePullPolicy: Always
         name: windows-core-iis
-      env:
-      - name: PATH_BASE
-        value: /iis
+        env:
+        - name: PATH_BASE
+          value: /iis
       nodeSelector:
         kubernetes.io/os: windows
