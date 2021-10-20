@@ -47,7 +47,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: windows-core-test
-  name: windows-core-iss-deployment
+  name: windows-core-iis-deployment
   labels:
     app: windows-core-iis
 spec:
