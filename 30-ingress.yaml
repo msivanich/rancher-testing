@@ -35,7 +35,7 @@ metadata:
   namespace: windows-core-test
 spec:
   rules:
-  - host: rancher.containers.rmntest.com
+  - host: rancherweb.containers.rmntest.com
     http:
       paths:
       - backend:
@@ -43,7 +43,8 @@ spec:
             name: windows-core-iis-service
             port:
               number: 80
-        path: /iis(/|$)(.*)
+        path: /iis
+        #path: /iis(/|$)(.*)
         pathType: Prefix
   tls:
   - hosts:
