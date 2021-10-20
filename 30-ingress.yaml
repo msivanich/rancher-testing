@@ -18,7 +18,7 @@ spec:
             port:
               number: 80
         path: /
-        path: /test(/|$)(.*)
+        #path: /test(/|$)(.*)
         pathType: Prefix
   tls:
   - hosts:
@@ -43,8 +43,7 @@ spec:
             name: windows-core-iis-service
             port:
               number: 80
-        path: /iis
-        path: /test(/|$)(.*)
+        path: /iis(/|$)(.*)
         pathType: Prefix
   tls:
   - hosts:
