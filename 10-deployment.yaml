@@ -74,7 +74,7 @@ spec:
               topologyKey: kubernetes.io/hostname
             weight: 1
       containers:
-      - image: registry.containers.rmntest.com/public/windows-core-iis:latest
+      - image: registry.containers.rmntest.com/public/rancher-iis:latest
         imagePullPolicy: Always
         name: windows-core-iis
         env:
